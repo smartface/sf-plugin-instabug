@@ -3,6 +3,8 @@ const Invocation    = require('sf-core/util').Invocation;
 function InstaBug() {}
 
 InstaBug.ios = {};
+InstaBug.android = {};
+
 InstaBug.ios.native = {};
 InstaBug.ios.native.startWithTokenInvocationEvent = function(token,invocationEvent){
 	var argToken = new Invocation.Argument({
