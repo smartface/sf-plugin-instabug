@@ -144,6 +144,19 @@ InstaBug.ios.native.logOut = function(){
     Invocation.invokeClassMethod("Instabug","logOut",[]);
 }
 
+InstaBug.ios.native.setShakingThresholdForiPhoneForiPad = function(iPhoneShakingThreshold,iPadShakingThreshold){
+		var argiPhoneShakingThreshold = new Invocation.Argument({
+        type:"double",
+        value: iPhoneShakingThreshold
+    });
+    var argiPadShakingThreshold = new Invocation.Argument({
+        type:"double",
+        value: iPadShakingThreshold
+    });
+    Invocation.invokeClassMethod("Instabug","setShakingThresholdForiPhone:foriPad:",[argiPhoneShakingThreshold,argiPadShakingThreshold]);
+};
+
+
 InstaBug.ios.IBGInvocationEvent = {
 	None : 0,
 	Shake : 1,
