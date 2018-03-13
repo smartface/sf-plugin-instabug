@@ -302,5 +302,102 @@ InstaBug.ios.IBGString = {
 	kIBGExtraFieldMissingDataText : "extraFieldMissingDataText"
 }	
 
+//////// Single Codebase //////////
+
+InstaBug.InvocationEvent = {
+	NONE : InstaBug.ios.IBGInvocationEvent.None,
+	SHAKE : InstaBug.ios.IBGInvocationEvent.Shake,
+	FLOATING_BUTTON : InstaBug.ios.IBGInvocationEvent.FloatingButton,
+	SCREENSHOT_GESTURE : InstaBug.ios.IBGInvocationEvent.Screenshot,
+	TWO_FINGER_SWIPE_LEFT : InstaBug.ios.IBGInvocationEvent.TwoFingersSwipeLeft
+}
+
+InstaBug.build = function(token,invocationEvent){
+	InstaBug.ios.native.startWithTokenInvocationEvent(token,invocationEvent);
+}
+
+InstaBug.invoke = function(){
+	InstaBug.ios.native.invoke();
+}
+
+InstaBug.InvocationMode = {
+	NEW_BUG : InstaBug.ios.IBGInvocationMode.NewBug,
+	NEW_FEEDBACK : InstaBug.ios.IBGInvocationMode.NewFeedback,
+	NEW_CHAT : InstaBug.ios.IBGInvocationMode.NewChat,
+	CHATS_LIST : InstaBug.ios.IBGInvocationMode.ChatsList
+}
+
+InstaBug.invokeWithInvocationMode = function(invocationMode){
+	InstaBug.ios.native.invokeWithInvocationMode(invocationMode);
+}
+
+InstaBug.dismiss = function(){
+	InstaBug.ios.native.dismiss();
+}
+
+InstaBug.setShakingThreshold = function(shakingThreshold){
+	var iPhoneShakingThreshold = 2.5;
+	var iPadShakingThreshold = 0.6;
+
+	if (shakingThreshold && shakingThreshold.iphone) {
+		iPhoneShakingThreshold = shakingThreshold.iphone;
+	}
+
+	if (shakingThreshold && shakingThreshold.ipad) {
+		iPadShakingThreshold = shakingThreshold.ipad;
+	}
+	InstaBug.ios.native.setShakingThresholdForiPhoneForiPad(iPhoneShakingThreshold,iPadShakingThreshold);
+}
+
+InstaBug.Theme = {
+	LIGHT : InstaBug.ios.IBGColorTheme.Light,
+	DARK : InstaBug.ios.IBGColorTheme.Dark
+}
+
+InstaBug.setTheme = function(theme){
+	InstaBug.ios.native.setColorTheme(theme);
+}
+
+InstaBug.setPrimaryColor = function(color){
+	InstaBug.ios.native.setPrimaryColor(color.nativeObject);
+}
+
+InstaBug.showIntroMessage = function(){
+	InstaBug.ios.native.showIntroMessage();
+}
+
+InstaBug.setPromptOptionsEnabled = function(chat,bug,feedback){
+	InstaBug.ios.native.setPromptOptionsEnabledWithBugFeedbackChat(bug,feedback,chat);
+}
+
+InstaBug.identifyUser = function(name,email){
+	InstaBug.ios.native.identifyUserWithEmailName(email,name);
+}
+
+InstaBug.setUserAttribute = function(key,value){
+	InstaBug.ios.native.setUserAttributeWithKey(value,key);
+}
+
+InstaBug.removeUserAttribute = function(key){
+	InstaBug.ios.native.removeUserAttributeForKey(key);
+}
+
+InstaBug.getAllUserAttributes = function(){
+	return InstaBug.ios.native.userAttributes();
+}
+
+InstaBug.getUserAttribute = function(key){
+	return InstaBug.ios.native.userAttributeForKey(key);
+}
+
+InstaBug.logoutUser = function(){
+	InstaBug.ios.native.logOut();
+}
+
+InstaBug.Locale = InstaBug.ios.IBGLocale;
+
+InstaBug.setLocale = function(locale){
+	InstaBug.ios.native.setLocale(locale);
+}
 
 module.exports = InstaBug;
