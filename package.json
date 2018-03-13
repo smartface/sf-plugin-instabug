@@ -1,0 +1,22 @@
+{
+  "name": "sf-plugin-instabug",
+  "version": "1.0.0",
+  "description": "Smartface Instabug Plugin for Smartface Native Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smartface",
+    "plugins",
+    "instabug",
+    "javascript"
+  ],
+  "author": {
+    "name": "Smartface",
+    "email": "info@smartface.io",
+    "url": "http://smartface.io"
+  },
+  "license": "ISC",
+  "homepage": "http://bitbucket.org/smartface-team/sf-plugins#readme"
+}
