@@ -169,6 +169,47 @@ InstaBug.Locale.Swedish;
 InstaBug.Locale.Turkish;
 ```
 
+#### User Email and Name
+
+By default, we ask the user to enter their email in any report. You can set the email as a required or optional field as explained.
+
+```javascript
+InstaBug.identifyUser("NAME","EMAIL");
+```
+
+#### User Attributes
+
+You can assign custom attributes to your users and they will show up on your Instabug dashboard with each report. Those attributes can later be used to filter the reports on the dashboard.
+
+To add a new user attribute use the following method.
+
+```javascript
+InstaBug.setUserAttribute("Age","18");
+```
+
+You can also retrieve or remove the current value of a certain user attribute, or retrieve all user attributes.
+
+```javascript
+InstaBug.removeUserAttribute("Age");
+```
+
+You can get user attributes.
+
+```javascript
+InstaBug.getUserAttribute("Age");
+InstaBug.getAllUserAttributes();
+```
+
+#### Logout
+
+When a user logs out, the following API should be called.
+
+```javascript
+InstaBug.logoutUser();
+```
+
+Calling logoutUser will reset the value of the email and name previously set. It will also remove any currently set user attributes, user events, user chats, and user data.
+
 ## License
 This project is licensed under the terms of the MIT license. See the [LICENSE](https://raw.githubusercontent.com/smartface/sf-extension-extendedlabel/master/LICENSE) file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.
 
