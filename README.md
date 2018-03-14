@@ -30,7 +30,7 @@ Smartface InstaBug plugin can be installed via npm easily from our public npm re
 ```
 
 ## How to use
-- You can initialize the SDK by calling the .build(token,invocationEvent)
+- You can initialize the SDK by calling the .build(token,invocationEvent) in app.js file.
 ```javascript
 const InstaBug = require("sf-plugin-instabug");
 InstaBug.build("TOKEN",InstaBug.InvocationEvent.SHAKE);
