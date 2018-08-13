@@ -11,13 +11,12 @@ Smartface Instabug plugin can be installed via npm easily from our public npm re
 - Run command `(cd ~/workspace/scripts && npm i -S sf-plugin-instabug)`
 
 ### iOS
-- Add Instabug plugin to config/project.json.
-
+- Add Instabug plugin config to **config/project.json** under *build/input/ios/plugins*.
 ```javascript
 "instabugios": {
-"url": "",
-"path": "plugins/iOS/instabugios.zip",
-"active": true
+    "url": "",
+    "path": "plugins/iOS/instabugios.zip",
+    "active": true
 }
 ```
 - If your app doesn’t readily access the microphone or the photo library, you will need to add the following keys to the config/iOS/info.plist file of your app for permissions required by Instabug.
